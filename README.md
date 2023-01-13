@@ -1,3 +1,3 @@
-# csharpexercism
+# C# exercism
 
-A record of my attempts at the C Sharp Exercism kata's.
+A record of my attempts at the C# Exercism kata's.
