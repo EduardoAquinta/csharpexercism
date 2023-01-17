@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yAAsIUnuJMYNfzWEwdScSwI41aiyGMXmlp6Mt9gr9yVDPq6dR9zpcTJTJ8DTgsGP6jDcoosPC2FzpbOFNmi2zw==",
+  "dgSpecHash": "LBgOkNFNA69J7i6jjMVmTHZPKTkGbLov9PM17eG/MUulUyANRtpBghhrWEU5dlWhLD0jppZj+6Ti1/wo6CrHLA==",
   "success": true,
   "projectFilePath": "/Users/christopher.ashton/Exercism/csharp/log-levels/LogLevels.csproj",
   "expectedPackageFiles": [
