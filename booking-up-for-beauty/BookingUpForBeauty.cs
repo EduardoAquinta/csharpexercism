@@ -1,29 +1,46 @@
 using System;
+using System.Runtime.InteropServices.JavaScript;
 
 static class Appointment
 {
     public static DateTime Schedule(string appointmentDateDescription)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.Schedule() method");
+        var parsedDate = DateTime.Parse(appointmentDateDescription);
+        return parsedDate;
     }
 
     public static bool HasPassed(DateTime appointmentDate)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
+        bool truth = false;
+        var currentTime = DateTime.Now;
+        if (currentTime > appointmentDate)
+        {
+            truth = true;
+        };
+        return truth;
     }
 
     public static bool IsAfternoonAppointment(DateTime appointmentDate)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.IsAfternoonAppointment() method");
+        bool truth = false;
+        var hour = appointmentDate.Hour;
+        if (hour >= 12 && hour < 18)
+        {
+            truth = true;
+        }
+
+        return truth;
     }
 
     public static string Description(DateTime appointmentDate)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.Description() method");
+        var stringTime = appointmentDate.ToString("G");
+        return $"You have an appointment on {stringTime}.";
     }
 
     public static DateTime AnniversaryDate()
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.AnniversaryDate() method");
+        var date = new DateTime(2023, 9, 15);
+        return date;
     }
 }
