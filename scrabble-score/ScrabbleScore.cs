@@ -1,76 +1,22 @@
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
 
 public static class ScrabbleScore
 {
     private static int total = 0;
-    private static char[] one = {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'};
-    private static char[] two = { 'D', 'G' };
-    private static char[] three = { 'B', 'C', 'M', 'P' };
-    private static char[] four = { 'F', 'H', 'V', 'W', 'Y' };
-    private static char five = 'K';
-    private static char[] eight = { 'J', 'K' };
-    private static char[] ten = { 'Q', 'Z' };
-    public static int Score(string input)
+  
+    private static readonly Dictionary<char, int> LetterScores = new()
     {
-        foreach (var c in input.ToUpper())
-        {
-            foreach (var ch in one)
-            {
-                if (c == ch)
-                {
-                    Console.WriteLine(input);
-                    Console.WriteLine(ch);
-                    total += 1;
-                }
-            }
+        { 'A', 1 }, { 'E', 1 }, { 'I', 1 }, { 'O', 1 }, { 'U', 1 }, { 'L', 1 }, { 'N', 1 }, { 'R', 1 }, { 'S', 1 }, { 'T', 1 },
+        { 'D', 2 }, { 'G', 2 },
+        { 'B', 3 }, { 'C', 3 }, { 'M', 3 }, { 'P', 3 },
+        { 'F', 4 }, { 'H', 4 }, { 'V', 4 }, { 'W', 4 }, { 'Y', 4 },
+        { 'K', 5 },
+        { 'J', 8 }, { 'X', 8 },
+        { 'Q', 10 }, { 'Z', 10 },
+    };
+    public static int Score(string input) =>
 
-            foreach (var cb in two)
-            {
-                if (c == cb)
-                {
-                    total += 2;
-                }
-            }
-            
-            foreach (var cc in three)
-            {
-                if (c == cc)
-                {
-                    total += 3;
-                }
-            }
-            
-            foreach (var cf in four)
-            {
-                if (c == cf)
-                {
-                    total += 4;
-                }
-            }
-            
-            if (c == five)
-            {
-                total += 5;
-            }
-            
-            foreach (var cj in eight)
-            {
-                if (c == cj)
-                {
-                    total += 8;
-                }
-            }
-            
-            foreach (var cz in ten)
-            {
-                if (c == cz)
-                {
-                    total += 10;
-                }
-            }
-        }
-        Console.WriteLine(total);
-        return total;
-    }
+        input.Select(char.ToUpper).Sum(LetterScores.GetValueOrDefault);
 }
