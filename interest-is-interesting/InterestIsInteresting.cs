@@ -80,31 +80,12 @@ static class SavingsAccount
 
     public static int YearsBeforeDesiredBalance(decimal balance, decimal targetBalance)
     {
-        var interestAmount = 0.0m;
         var year = 0;
 
         while (balance < targetBalance)
         {
-            switch (balance)
-            {
-                case < 0.0m:
-                    interestAmount = (balance * 3.213m) / 100.0m;
-                    break;
-
-                case >= 0m and < 1000.0m:
-                    interestAmount = (balance * 0.5m) / 100.0m;
-                    break;
-
-                case >= 1000.0m and < 5000.0m:
-                    interestAmount = (balance * 1.621m) / 100.0m;
-                    break;
-                case > 5000.0m:
-                    interestAmount = (balance * 2.475m) / 100.0m;
-                    break;
-            }
-
-            balance += interestAmount;
-            year += 1;
+            balance = AnnualBalanceUpdate(balance);
+            year ++;
         }
 
         return year;
